@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:meal_app/layouts/meal_detail_screen.dart';
 import 'package:transparent_image/transparent_image.dart';
 
 import '../models/meal.dart';
@@ -18,7 +19,16 @@ class MealItem extends StatelessWidget {
       clipBehavior: Clip.hardEdge,
       elevation: 2,
       child: InkWell(
-        onTap: (){},
+        onTap: (){
+          Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => MealDetailScreen(
+                meal: meal,
+                onToggleFavorites: (Meal meal) {  },
+                )
+              ),
+          );
+        },
         child: Column(
           children: [
             Stack(
