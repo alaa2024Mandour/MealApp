@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'layouts/home_screen.dart';
 
@@ -15,8 +16,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Color.fromARGB(255, 132, 0, 51)),
-        useMaterial3: true
+        colorScheme: ColorScheme.fromSeed(
+            seedColor: Color.fromARGB(255, 132, 0, 51),
+            brightness: Brightness.dark
+        ),
+        useMaterial3: true,
+        textTheme: GoogleFonts.latoTextTheme()
       ),
       home: const HomeScreen(),
     );
