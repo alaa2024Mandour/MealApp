@@ -40,4 +40,20 @@ class Meal {
   final bool isLactoseFree;
   final bool isVegan;
   final bool isVegetarian;
+
+  String get affordabilityText {
+    switch(affordability){
+      case Affordability.affordable : return 'affordable';
+      case Affordability.pricey : return 'pricey';
+      case Affordability.luxurious : return 'luxurious';
+    }
+  }
+
+  String get complexityText{
+    switch(complexity){
+      case Complexity.challenging : return 'challenging';
+      case Complexity.hard : return 'hard';
+      case Complexity.simple : return 'simple';
+    }
+  }
 }
