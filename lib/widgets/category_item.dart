@@ -1,24 +1,30 @@
 import 'package:flutter/material.dart';
-import 'package:meal_app/data/dummy_data.dart';
 import 'package:meal_app/layouts/meal_screen.dart';
 import 'package:meal_app/models/meal.dart';
 
 import '../models/category.dart';
 class CategoryItem extends StatelessWidget {
-  const CategoryItem({super.key, required this.category});
+  const CategoryItem({
+    super.key,
+    required this.category,
+    required this.onToggleFavorites,
+    required this.availableMeal
+  });
 
-  final Category category; 
-
+  final List<Meal> availableMeal;
+  final Category category;
+  final Function(Meal meal) onToggleFavorites;
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap:() {
-        final List<Meal> filteredMeal = dummyMeals.where((meal)=>meal.categories.contains(category.id)).toList();
+        final List<Meal> filteredMeal = availableMeal.where((meal)=>meal.categories.contains(category.id)).toList();
         Navigator.of(context).push(
             MaterialPageRoute(
                 builder: (context) => MealScreen(
                   title: category.title,
                   meals: filteredMeal,
+                  onToggleFavorites: onToggleFavorites,
                 ),
             )
         );
