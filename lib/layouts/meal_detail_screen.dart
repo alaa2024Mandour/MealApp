@@ -2,7 +2,12 @@ import 'package:flutter/material.dart';
 import '../models/meal.dart';
 
  class MealDetailScreen extends StatelessWidget {
-  const MealDetailScreen({super.key, required this.meal, required this.onToggleFavorites});
+  const MealDetailScreen({
+
+    super.key,
+    required this.meal,
+    required this.onToggleFavorites,
+  });
 
   final Meal meal ;
   final Function(Meal meal) onToggleFavorites;

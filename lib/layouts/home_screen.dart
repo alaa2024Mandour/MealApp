@@ -1,15 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:meal_app/data/dummy_data.dart';
 import 'package:meal_app/widgets/category_item.dart';
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
 
+import '../models/meal.dart';
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key, required this.onToggleFavorites, required this.availableMeal});
+  final Function(Meal meal) onToggleFavorites;
+  final List<Meal> availableMeal;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('data'),),
       body: GridView.builder(
-        itemBuilder: (BuildContext context, int index) => CategoryItem(category: availableCategories[index],),
+        itemBuilder: (BuildContext context, int index) => CategoryItem(
+          category: availableCategories[index],
+          onToggleFavorites: onToggleFavorites,
+          availableMeal: availableMeal,
+          ),
         itemCount: availableCategories.length,
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,

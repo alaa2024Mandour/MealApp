@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:meal_app/layouts/tabs_screen.dart';
 
 import 'layouts/home_screen.dart';
 
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
         textTheme: GoogleFonts.latoTextTheme()
       ),
-      home: const HomeScreen(),
+      home: const TabsScreen(),
     );
   }
 }
