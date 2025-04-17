@@ -4,8 +4,7 @@ import 'package:meal_app/widgets/category_item.dart';
 
 import '../models/meal.dart';
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key, required this.onToggleFavorites, required this.availableMeal});
-  final Function(Meal meal) onToggleFavorites;
+  const HomeScreen({super.key, required this.availableMeal});
   final List<Meal> availableMeal;
   @override
   Widget build(BuildContext context) {
@@ -13,7 +12,6 @@ class HomeScreen extends StatelessWidget {
       body: GridView.builder(
         itemBuilder: (BuildContext context, int index) => CategoryItem(
           category: availableCategories[index],
-          onToggleFavorites: onToggleFavorites,
           availableMeal: availableMeal,
           ),
         itemCount: availableCategories.length,

@@ -7,13 +7,11 @@ class CategoryItem extends StatelessWidget {
   const CategoryItem({
     super.key,
     required this.category,
-    required this.onToggleFavorites,
     required this.availableMeal
   });
 
   final List<Meal> availableMeal;
   final Category category;
-  final Function(Meal meal) onToggleFavorites;
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -24,7 +22,6 @@ class CategoryItem extends StatelessWidget {
                 builder: (context) => MealScreen(
                   title: category.title,
                   meals: filteredMeal,
-                  onToggleFavorites: onToggleFavorites,
                 ),
             )
         );
