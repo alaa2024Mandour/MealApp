@@ -34,8 +34,20 @@ class MealDetailScreen extends ConsumerWidget {
                 context,
               ).showSnackBar(SnackBar(content: Text(wasAdded ? 'Add To Favorites Meals' : 'Removed From Favorites Meals')));
             },
-            icon: isFav ? Icon(Icons.star) : Icon(Icons.star_border),
-            color: isFav ? Colors.amber :  Colors.white70 ,
+            icon: AnimatedSwitcher(
+                duration: const Duration(seconds: 1),
+                transitionBuilder: (child,animation) {
+                  return RotationTransition(
+                    turns: Tween<double>(begin: 0.5,end: 1).animate(animation),
+                    child: child,
+                  );
+                },
+                child: Icon(
+                    isFav ?Icons.star : Icons.star_border ,
+                  color: isFav ? Colors.amber :  Colors.white70 ,
+                  key: ValueKey(isFav),
+                )
+            ),
           ),
         ],
       ),
