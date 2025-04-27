@@ -4,7 +4,6 @@ import 'package:meal_app/data/dummy_data.dart';
 import 'package:meal_app/layouts/favorite_screen.dart';
 import 'package:meal_app/layouts/home_screen.dart';
 import 'package:meal_app/layouts/meal_screen.dart';
-import 'package:meal_app/provider/meal_provider.dart';
 import 'package:meal_app/provider/navbar_Provider.dart';
 import 'package:meal_app/widgets/drawer_main.dart';
 
@@ -47,7 +46,7 @@ class TabsScreen extends ConsumerWidget {
       body: activeScreen,
       bottomNavigationBar: BottomNavigationBar(
         onTap: (index) {
-          ref.read(navbarProvider.notifier).selectPage;
+          ref.read(navbarProvider.notifier).selectPage(index);
         },
         currentIndex: selectedPageIndex,
         items: [
